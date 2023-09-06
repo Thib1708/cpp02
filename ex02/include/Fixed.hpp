@@ -6,7 +6,7 @@
 /*   By: tgiraudo <tgiraudo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 17:24:49 by thibaultgir       #+#    #+#             */
-/*   Updated: 2023/09/06 16:43:58 by tgiraudo         ###   ########.fr       */
+/*   Updated: 2023/09/06 18:02:39 by tgiraudo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,8 @@ class Fixed {
 
 		Fixed operator++ ( int );
 		Fixed operator-- ( int );
-		Fixed &operator++ ( void );
-		Fixed &operator-- ( void );
+		Fixed operator++ ( void );
+		Fixed operator-- ( void );
 		
 		Fixed operator< ( const Fixed &f );
 		Fixed operator> ( const Fixed &f );

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thibaultgiraudon <thibaultgiraudon@stud    +#+  +:+       +#+        */
+/*   By: tgiraudo <tgiraudo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 17:43:01 by thibaultgir       #+#    #+#             */
-/*   Updated: 2023/05/16 19:15:02 by thibaultgir      ###   ########.fr       */
+/*   Updated: 2023/09/06 18:07:30 by tgiraudo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,23 +84,27 @@ Fixed Fixed::operator/( const Fixed &f ) {
 
 Fixed Fixed::operator++( int value ) {
 	Fixed temp = *this;
-	++*this;
-	return *this;
+	if (!value)
+		value = 1;
+	this->setRawBits(this->getRawBits() + value);
+	return temp;
 }
 
 Fixed Fixed::operator--( int value ) {
-	Fixed temp = *this;
-	--*this;
+		Fixed temp = *this;
+	if (!value)
+		value = 1;
+	this->setRawBits(this->getRawBits() - value);
+	return temp;
+}
+
+Fixed Fixed::operator++( void ) {
+	this->setRawBits(this->getRawBits() + 1);
 	return *this;
 }
 
-Fixed& Fixed::operator++( void ) {
-	this->_value++;
-	return *this;
-}
-
-Fixed& Fixed::operator--( void ) {
-	this->_value--;
+Fixed Fixed::operator--( void ) {
+	this->setRawBits(this->getRawBits() - 1);
 	return *this;
 }
 
